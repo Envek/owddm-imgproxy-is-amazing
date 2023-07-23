@@ -63,7 +63,7 @@ class: text-center
 layout: center
 ---
 
-# That title is boring!
+## That title is boring!
 
 Let's change!
 
@@ -114,7 +114,7 @@ class: text-center
 
 ---
 layout: image-right
-image: ./images/20230305_193526.jpg
+image: /images/20230305_193526.jpg
 class: annotated-list
 ---
 
@@ -344,6 +344,8 @@ transition: slide-up
 
 # “Classic” way visualized
 
+<div class="mt--5px">
+
 ```mermaid
 sequenceDiagram
     User->>Server: Uploads Image
@@ -352,15 +354,17 @@ sequenceDiagram
     Server->>User: Upload successful
     User->>Server: Requests thumbnail
     Server->>Storage: Retrieves Thumbnail
-    Storage-->>Server: There are no thumbnails yet
+    Storage-->>Server: There are no thumbnails yet!
     Server->>User: “Image is processing”
     activate JobQueue
-    Note over JobQueue: Job processing<br>started
-    Storage-->>JobQueue: Retrieve image
+    Note over JobQueue: Job<br/>started
+    Storage->>JobQueue: <br/>Retrieve image
+    Note over JobQueue: Generates<br>thumbnail
     deactivate JobQueue
 ```
+</div>
 
-<div v-click class="absolute bottom-96px right-64px rotate-10 text-lg p-6 bg-rose-900/25 border border-rose-500 text-center">Unpredictable<br/>latency<br/>here</div>
+<div v-click class="absolute bottom-120px right-64px rotate-10 text-lg p-5 bg-rose-900/25 border border-rose-500 text-center">Unpredictable<br/>latency<br/>here</div>
 
 <!--
 
@@ -380,7 +384,7 @@ But then what to do if you want to show user their precious pictures? And you pr
 ---
 
 <div class="overflow-hidden mt--35px">
-<div class="mt--75px">
+<div class="mt--67px">
 
 ```mermaid
 sequenceDiagram
@@ -553,7 +557,7 @@ And that's it.
 
 ---
 
-## Original
+# Original image
 
 <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia22228.jpg" class="max-w-none" />
 
@@ -565,9 +569,9 @@ So we can see that original image which is quite large, and it is not so good id
 
 ---
 
-## Processed
+# Processed image
 
-![](https://imgproxy.evilmartians.com/PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg)
+<img src="https://imgproxy.evilmartians.com/PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg" />
 
 <qr-code url="https://imgproxy.evilmartians.com/PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg" caption="Image processed with imgproxy: 32 kB" class="w-72 absolute bottom-10px right-10px" />
 
@@ -629,7 +633,7 @@ Also imgproxy is really mad about security, let's talk about it in detail.
 class: annotated-list
 ---
 
-## More on security
+# More on security
 
 <v-clicks>
 
@@ -721,7 +725,7 @@ class: annotated-list
 
 
 <div class="p-2 text-center bg-black">
-<a href="https://owddm.com/" class=""><img alt="Recommended diagram for using imgproxy with caching CDN" src="/images/desktop-diagram.webp" class="block mx-auto" /></a>
+<a href="https://owddm.com/" class=""><img alt="Recommended diagram for using imgproxy with caching CDN" src="/images/desktop-diagram.webp" class="block mx-auto px-5" /></a>
 </div>
 
 <!--
@@ -746,6 +750,8 @@ class: annotated-list
 
   But you can opt-out from signing URLs if you want
 
+
+<div v-click class="mt-32 text-lg p-5 text-center">Couldn't recall any more 🌚</div>
 <!--
 
 Migration to imgproxy is pretty straightforward: you drop a ton of logic and machinery from your application and instead provide only a few settings: imgproxy or CDN URL, and secret for signing URLs and a small helper to generate and sign these URLs.
@@ -830,7 +836,7 @@ class: annotated-list
 
    [imgproxy: Resize your images instantly and securely](https://evilmartians.com/chronicles/introducing-imgproxy)
    
-   by Sergey Aleksandrovich (imgproxy author)
+   by Sergey Alexandrovich (imgproxy author)
 
    with more details on how imgproxy works and how to use it
 
