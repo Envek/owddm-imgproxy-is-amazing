@@ -29,6 +29,8 @@ fonts:
 title: Handling user-uploaded images with ease and confidence
 transition: fade-out
 
+download: https://files.speakerdeck.com/presentations/8f02399c68314dd48a38b6945e4c1a29/slides-export.pdf
+
 class: text-center
 ---
 
@@ -512,7 +514,7 @@ The only thing you need to care about is constructing URLs
 Given original image URL:
 
 ```
-https://www.nasa.gov/sites/default/files/thumbnails/image/pia22228.jpg
+https://mars.nasa.gov/system/downloadable_items/40368_PIA22228.jpg
 ```
 
 I need to get 300×150 thumbnail, but for Retina displays, smart cropped, and saturated, also with watermark in right bottom corner.
@@ -520,12 +522,12 @@ I need to get 300×150 thumbnail, but for Retina displays, smart cropped, and sa
 Here is the result URL for such a thumbnail:
 
 ```txt {1-6|2|3-4|6}
-https://imgproxy.evilmartians.com/
-PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/
+https://demo.imgproxy.net/
+doqHNTjtFpozyphRzlQTHyBloSoYS13lLuMDozTnxqA/
 rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/
 wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/
 plain/
-https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg
+https:%2F%2Fmars.nasa.gov%2Fsystem%2Fdownloadable_items%2F40368_PIA22228.jpg
 ```
 
 See https://docs.imgproxy.net/generating_the_url
@@ -559,9 +561,11 @@ And that's it.
 
 # Original image
 
-<img src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia22228.jpg" class="max-w-none" />
+<a href="https://mars.nasa.gov/system/downloadable_items/40368_PIA22228.jpg">
+<img src="https://demo.imgproxy.net/Dxary2A_W8pcjTip5KdpEVTFF34jXwt0LyKND73SBzA/rs:fill:902:532:1/dpr:2/g:ce/plain/https:%2F%2Fmars.nasa.gov%2Fsystem%2Fdownloadable_items%2F40368_PIA22228.jpg" class="max-w-80%" />
+</a>
 
-<qr-code url="https://www.nasa.gov/sites/default/files/thumbnails/image/pia22228.jpg" caption="Original image: 1.9 MB" class="w-48 absolute bottom-10px right-10px" />
+<qr-code url="https://mars.nasa.gov/system/downloadable_items/40368_PIA22228.jpg" caption="Original image: 19.9 MB" class="w-48 absolute bottom-10px right-10px" />
 
 <!--
 So we can see that original image which is quite large, and it is not so good idea to serve it to users either on mobile devicesor on desktops too, as it is too large for most cases. It doesn't even fit into slide!
@@ -571,9 +575,9 @@ So we can see that original image which is quite large, and it is not so good id
 
 # Processed image
 
-<img src="https://imgproxy.evilmartians.com/PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg" />
+<img src="https://demo.imgproxy.net/doqHNTjtFpozyphRzlQTHyBloSoYS13lLuMDozTnxqA/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fmars.nasa.gov%2Fsystem%2Fdownloadable_items%2F40368_PIA22228.jpg" />
 
-<qr-code url="https://imgproxy.evilmartians.com/PeInr5PpUxqmfAQlYON_cPs2HC96QOoXik3UaDzIA6c/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg" caption="Image processed with imgproxy: 32 kB" class="w-72 absolute bottom-10px right-10px" />
+<qr-code url="https://demo.imgproxy.net/doqHNTjtFpozyphRzlQTHyBloSoYS13lLuMDozTnxqA/rs:fill:300:150:1/dpr:2/g:ce/sa:1.4/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fmars.nasa.gov%2Fsystem%2Fdownloadable_items%2F40368_PIA22228.jpg" caption="Image processed with imgproxy: 32 kB" class="w-72 absolute bottom-10px right-10px" />
 
 <!-- And here is processed image using URL from the slide before. It much smaller, saturated, and has watermark. Nice! -->
 
